@@ -1,25 +1,122 @@
-<!doctype html>
-<html lang="de">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Compliance Chat</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compliance Dashboard</title>
+  <style>
+    body {
+      background-color: #1e1e1e;          /* dunkler Hintergrund */
+      color: #ffffff;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .chat-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .chat-box {
+      flex: 1 1 400px;
+      max-width: 500px;
+      background-color: #2a2a2a;
+      border: 1px solid #555;
+      border-radius: 6px;
+      padding: 20px;
+      min-height: 300px;
+      box-sizing: border-box;
+    }
+
+    .chat-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    #disclaimer {
+      margin-top: 60px;
+      font-size: 0.85rem;
+      color: #aaa;
+      text-align: center;
+      line-height: 1.4;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      resize: none;
+      background-color: #1e1e1e;
+      color: #fff;
+      border: 1px solid #555;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    button:hover {
+      background-color: #666;
+    }
+
+    #answerBox {
+      white-space: pre-wrap;
+      font-size: 0.95rem;
+      color: #eee;
+      min-height: 220px;
+      border: 1px solid #555;
+      border-radius: 4px;
+      padding: 10px;
+      background-color: #1e1e1e;
+    }
+  </style>
 </head>
 <body>
-  <h1 style="font-family: system-ui; font-weight:600;">Compliance Chat</h1>
-  <p style="font-family: system-ui;">Self-Dealing</p>
+  <h1>Compliance Dashboard</h1>
 
-  <!-- n8n Chat Widget -->
-  <script src="https://unpkg.com/@n8n/chat/dist/chat.min.js"></script>
-  <script>
-    window.n8nChat.create({
-      webhookUrl: "https://DEIN-N8N-HOST/WEBHOOK-ODER-CHAT-URL",
-      title: "Compliance Chat",
-      // optional:
-      // position: "right",
-      // openOnLoad: false,
-      // theme: { primary: "#0f172a" }
-    });
-  </script>
+  <div class="chat-container">
+    <!-- Linke Seite: Eingabe -->
+    <div class="chat-box">
+      <div class="chat-title">Question</div>
+      <textarea id="userInput" placeholder="Type your question here..."></textarea>
+      <button>Send</button>
+    </div>
+
+    <!-- Rechte Seite: Antwort -->
+    <div class="chat-box">
+      <div class="chat-title">Answer</div>
+      <div id="answerBox">Awaiting input...</div>
+    </div>
+  </div>
+
+  <div id="disclaimer">
+    This dashboard is for informational and internal compliance purposes only.<br>
+    It does not constitute legal advice and should not be relied upon as such.
+  </div>
 </body>
 </html>
