@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compliance Chat</title>
+</head>
+<body>
+  <h1 style="font-family: system-ui; font-weight:600;">Compliance Chat</h1>
+  <p style="font-family: system-ui;">Self-Dealing</p>
+
+  <!-- n8n Chat Widget -->
+  <script src="https://unpkg.com/@n8n/chat/dist/chat.min.js"></script>
+  <script>
+    window.n8nChat.create({
+      webhookUrl: "https://DEIN-N8N-HOST/WEBHOOK-ODER-CHAT-URL",
+      title: "Compliance Chat",
+      // optional:
+      // position: "right",
+      // openOnLoad: false,
+      // theme: { primary: "#0f172a" }
+    });
+  </script>
+</body>
+</html>
