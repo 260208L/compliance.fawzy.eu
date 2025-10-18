@@ -136,7 +136,7 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input })
       });
-      
+
       const raw = await res.text();             // 1) rohe Antwort lesen
       let data = null;
       try { data = JSON.parse(raw); } catch {}  // 2) JSON versuchen, sonst roh anzeigen
