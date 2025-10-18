@@ -136,9 +136,13 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input })
       });
-      if (!res.ok) throw new Error(`Server ${res.status}`);
-      const data = await res.json();
-      answerBox.textContent = data?.response ?? "No response received.";
+      
+      const raw = await res.text();             // 1) rohe Antwort lesen
+      let data = null;
+      try { data = JSON.parse(raw); } catch {}  // 2) JSON versuchen, sonst roh anzeigen
+
+      // 3) Anzeigen, was zurückkam (hilft beim Debuggen)
+      answerBox.textContent = data?.response ?? raw || "No response received.";
     } catch (e) {
       answerBox.textContent = `Error: ${e.message}`;
     }
