@@ -119,4 +119,32 @@
     It does not constitute legal advice and should not be relied upon as such.
   </div>
 </body>
+
+<script>
+  async function sendMessage() {
+    const input = (document.getElementById("userInput")?.value || "").trim();
+    const answerBox = document.getElementById("answerBox");
+
+    if (!input) { answerBox.textContent = "Please enter a question."; return; }
+    answerBox.textContent = "Loading answer…";
+
+    const webhookUrl = "http://localhost:5678/webhook/7eb06989-bd8c-4a0e-92f6-2e8ef453c7df";
+
+    try {
+      const res = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: input })
+      });
+      if (!res.ok) throw new Error(`Server ${res.status}`);
+      const data = await res.json();
+      answerBox.textContent = data?.response ?? "No response received.";
+    } catch (e) {
+      answerBox.textContent = `Error: ${e.message}`;
+    }
+  }
+
+  document.querySelector("button")?.addEventListener("click", sendMessage);
+</script>
+  
 </html>
