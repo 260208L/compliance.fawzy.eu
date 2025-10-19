@@ -118,7 +118,8 @@
     This dashboard is for informational and internal compliance purposes only.<br>
     It does not constitute legal advice and should not be relied upon as such.
   </div>
-
+</body>
+  
 <script>
   async function sendMessage() {
     const input = (document.getElementById("userInput")?.value || "").trim();
@@ -140,7 +141,7 @@
       try { data = JSON.parse(raw); } catch {}  // 2) JSON versuchen, sonst roh anzeigen
 
       // 3) Anzeigen, was zurückkam (hilft beim Debuggen)
-      answerBox.textContent = data?.response ?? raw || "No response received.";
+      answerBox.textContent = data?.response ?? raw "No response received.";
     } catch (e) {
       answerBox.textContent = `Error: ${e.message}`;
     }
@@ -148,7 +149,5 @@
 
   document.querySelector("button")?.addEventListener("click", sendMessage);
 </script>
-
-</body>
   
 </html>
