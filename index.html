@@ -118,7 +118,6 @@
     This dashboard is for informational and internal compliance purposes only.<br>
     It does not constitute legal advice and should not be relied upon as such.
   </div>
-</body>
 
 <script>
   async function sendMessage() {
@@ -128,8 +127,7 @@
     if (!input) { answerBox.textContent = "Please enter a question."; return; }
     answerBox.textContent = "Loading answer…";
 
-    const webhookUrl = "http://localhost:5678/webhook-test/7eb06989-bd8c-4a0e-92f6-2e8ef453c7df";
-
+    const webhookUrl = "https://letterless-pamila-unaspiringly-ngrok-free.dev/webhook/7eb06989-bd8c-4a0e-92f6-2e8ef453c7df";
     try {
       const res = await fetch(webhookUrl, {
         method: "POST",
@@ -150,5 +148,7 @@
 
   document.querySelector("button")?.addEventListener("click", sendMessage);
 </script>
+
+</body>
   
 </html>
