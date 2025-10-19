@@ -104,7 +104,7 @@
     <div class="chat-box">
       <div class="chat-title">Question</div>
       <textarea id="userInput" placeholder="Type your question here..."></textarea>
-      <button>Send</button>
+      <button id="sendBtn" type="button">Send</button>
     </div>
 
     <!-- Rechte Seite: Antwort -->
@@ -151,7 +151,7 @@
     }
   }
 
-  document.querySelector("button")?.addEventListener("click", sendMessage);
+  document.getElementById("sendBtn")?.addEventListener("click", sendMessage);
 </script>
   
 </html>
