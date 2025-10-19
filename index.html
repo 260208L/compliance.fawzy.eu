@@ -141,7 +141,7 @@
       try { data = JSON.parse(raw); } catch {}  // 2) JSON versuchen, sonst roh anzeigen
 
       // 3) Anzeigen, was zurückkam (hilft beim Debuggen)
-      answerBox.textContent = data?.response ?? raw "No response received.";
+      answerBox.textContent = (data && data.response) ? data.response : (raw || "No response received.");
     } catch (e) {
       answerBox.textContent = `Error: ${e.message}`;
     }
